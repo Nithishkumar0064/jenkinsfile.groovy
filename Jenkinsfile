@@ -2,7 +2,6 @@
 pipeline {
     environment {
   registry = 'Nithishkumar0064/jenkinsfile.groovy'
-  registryCredentials = 'none'
  }
     agent any
 
