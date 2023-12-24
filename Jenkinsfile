@@ -5,31 +5,32 @@ pipeline {
   registryCredentials = 'none'
  }
     agent any
-    stages{
-        stage('Clone the Git Repository') {
+
+    stages {
+        stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/Nithishkumar0064/new-java-project.git'
             }
         }
-        stage('Build'){
+
+        stage('Build') {
             steps {
-                script {
-                    sh mvn clean install
-                }
+                sh 'mvn clean install'
             }
         }
-        stage('Push image to Hub'){
+
+        stage('Push') {
             steps {
-                sh 'echo Registry-push'
-				
-                }
+                echo 'This is Push Stage'
             }
         }
-        stage('Deploy'){
+
+        stage('Deploy') {
             steps {
                 sh 'sudo cp /home/ubuntu/new-folder/workspace/assignment-scripted/target/*.jar  /opt/tomcat/apache-tomcat-9.0.68/webapps/'
             }
-            
         }
-        
+
     }
+
+}
