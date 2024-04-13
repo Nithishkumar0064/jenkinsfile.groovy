@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Nithishkumar0064/new-java-project.git'
+                 git branch: 'main', url: 'https://github.com/Nithishkumar0064/java-example.git'
             }
         }
 
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'sudo cp /home/ubuntu/new-folder/workspace/assignment-scripted/target/*.jar  /opt/tomcat/apache-tomcat-9.0.68/webapps/'
+                sh 'sudo cp /home/ubuntu/jenkins/workspace/assignment-scripted/target/*.war  /opt/tomcat/apache-tomcat-9.0.68/webapps/'
             }
         }
 
